@@ -1,0 +1,64 @@
+
+
+<div class="album py-5">
+    <div class="container">
+        <div class="container d-flex justify-content-center align-items-center">
+            <div class="card shadow-sm custom-card">
+                <div class="card-body">
+                    <div class="section">
+                        <h4 style="margin-top: 20px; font-size: 20px; text-align: center;">Select one of the events to update</h4>
+                        <div *ngIf="records.length > 0">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Enter event name" [(ngModel)]="name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="capacity">Capacity</label>
+                                <input type="number" name="capacity" class="form-control" id="capacity" placeholder="Event Capacity" [(ngModel)]="capacity"/>
+                            </div>
+                            <button style="margin-top: 20px;" type="submit" class="btn btn-primary" (click)="onUpdateEvent()">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="my-2" style="font-size: 30px; font-weight: bold;">Event List</h3>
+
+        <div class="row row-cols-1 g-3">
+            <div class="col">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Start</th>
+                        <th scope="col">End</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Is Active</th>
+                        <th scope="col">Capacity</th>
+                        <th scope="col">Tickets Available</th>
+                        <th scope="col">Category Id</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    
+                    <tbody>
+                    <tr *ngFor="let event of records">
+                        <td>{{event.eventId}}</td>
+                        <td>{{event.name}}</td>
+                        <td>{{event.startDateTime | pipeDateFormat}}</td>
+                        <td>{{event.endDateTime | pipeDateFormat}}</td>
+                        <td>{{event.durationInMinutes | duration}}</td>
+                        <td><input type="checkbox" [checked]="event.active" disabled></td>
+                        <td>{{event.capacity}}</td>
+                        <td>{{event.ticketsAvailable}}</td>
+                        <td><span *ngFor="let category of event.categoryList; let last = last">{{category.categoryId}}{{last ? '' : ', '}}</span></td>
+                        <td> <button type="submit" class="btn btn-primary" (click)="onSelectEvent(event)">Select</button> </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

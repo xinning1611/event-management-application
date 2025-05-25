@@ -1,0 +1,51 @@
+
+<div class="album py-5">
+    <div class="container">
+        <ng-container *ngIf="event; else noEvent">
+            <div class="image-style">
+                <img src={{event.image}} width="400" height="200"/>
+            </div>
+            <div class="center-content">
+                <h4 style="font-weight: bold;">{{ event.name }}</h4>
+            </div>
+
+            <div class="container" style="border: 1px groove #535151; padding: 20px;">
+                <h6 style="font-weight: bold;">Event Id</h6>
+                <p>{{ event.eventId }}</p> 
+
+                <h6 style="font-weight: bold;">Name</h6>
+                <p>{{ event.name }}</p>
+
+                <h6 style="font-weight: bold;">Description</h6>
+                <p>{{ event.description }}</p>
+
+                <h6 style="font-weight: bold;">Start Date Time</h6>
+                <p>{{ event.startDateTime | pipeDateFormat }}</p>
+
+                <h6 style="font-weight: bold;">End Date Time</h6>
+                <p>{{ event.endDateTime | pipeDateFormat }}</p>
+
+                <h6 style="font-weight: bold;">Duration</h6>
+                <p>{{ event.durationInMinutes | duration }}</p>
+
+                <h6 style="font-weight: bold;">Is Active</h6>
+                <p><input type="checkbox" [checked]="event.active" disabled /></p>
+
+                <h6 style="font-weight: bold;">Capacity</h6>
+                <p>{{ event.capacity }}</p>
+
+                <h6 style="font-weight: bold;">Tickets Available</h6>
+                <p>{{ event.ticketsAvailable }}</p>
+
+                <h6 style="font-weight: bold;">Category ID</h6>
+                <ul>
+                    <li *ngFor="let category of event.categoryList;">{{category.categoryId}}</li>
+                </ul>
+            </div>
+        </ng-container>
+
+        <ng-template #noEvent>
+            <h5> Error: Event ID not found </h5>
+        </ng-template>
+    </div>
+</div>

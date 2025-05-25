@@ -1,0 +1,42 @@
+<div class="album py-5">
+    <div class="container">
+
+        <h3 class="my-2" style="font-size: 30px; font-weight: bold;">Event List</h3>
+
+        <div class="row row-cols-1 g-3">
+            <div class="col">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Start</th>
+                        <th scope="col">End</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Is Active</th>
+                        <th scope="col">Capacity</th>
+                        <th scope="col">Tickets Available</th>
+                        <th scope="col">Category Id</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    
+                    <tbody>
+                    <tr *ngFor="let event of records">
+                        <td>{{event.eventId}}</td>
+                        <td>{{event.name}}</td>
+                        <td>{{event.startDateTime | pipeDateFormat}}</td>
+                        <td>{{event.endDateTime | pipeDateFormat}}</td>
+                        <td>{{event.durationInMinutes | duration}}</td>
+                        <td><input type="checkbox" [checked]="event.active" disabled></td>
+                        <td>{{event.capacity}}</td>
+                        <td>{{event.ticketsAvailable}}</td>
+                        <td><span *ngFor="let category of event.categoryList; let last = last">{{category.categoryId}}{{last ? '' : ', '}}</span></td>
+                        <td> <button type="submit" class="btn btn-primary" (click)="onDeleteEvent(event)">Delete</button> </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

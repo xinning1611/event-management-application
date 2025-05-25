@@ -1,0 +1,68 @@
+<body>
+    <main>
+        <div class="album py-5">
+            <div class="container" style="padding-left: 450px;">
+
+                <h3 class="my-2" style="font-size: 30px; font-weight: bold; ">Add Event</h3>
+                <h4 style="margin-top: 20px; font-size: 15px;"> Fill in event details & click submit </h4>
+
+                <div class="row row-cols-1 row-cols-sm-2 g-3">
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class = "section">
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Enter event name" [(ngModel)]="event.name"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="description">Description</label>
+                                        <input type="text" name="description" class="form-control" id="description" placeholder="Enter description" [(ngModel)]="event.description"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="image">Image</label>
+                                        <input type="text" name="image" class="form-control" id="image" placeholder="Enter static resource path" [(ngModel)]="event.image"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="startDateTime">Start Date Time</label>
+                                        <input type="datetime-local" name="startDateTime" class="form-control" id="startDateTime" [(ngModel)]="event.startDateTime"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="durationInMinutes">Duration In Minutes</label>
+                                        <input type="number" name="durationInMinutes" class="form-control" id="durationInMinutes" placeholder="Event duration in minutes" [(ngModel)]="event.durationInMinutes"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="active">Active</label>
+                                        <input type="checkbox" name="active" class="form-check-input" id="active" checked [(ngModel)]="event.active"/>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="capacity">Capacity</label>
+                                        <input type="number" name="capacity" class="form-control" id="capacity" placeholder="Event Capacity" [(ngModel)]="event.capacity"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="ticketsAvailable">Tickets Available</label>
+                                        <input type="number" name="ticketsAvailable" class="form-control" id="ticketsAvailable" placeholder="Tickets Available (optional)" [(ngModel)]="event.ticketsAvailable"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="categoryId">Category Id</label>
+                                        <input type="text" name="categoryId" class="form-control" id="categoryId" placeholder="Enter category Id" [(ngModel)]="event.categoryList"/>
+                                    </div>
+
+                                    <button style="margin-top: 20px;" type="submit" class="btn btn-primary" (click)="onSaveEvent()">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>

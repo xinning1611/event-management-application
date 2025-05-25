@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Details</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Image -->
+            <div class="col-sm-12 col-md-6 col-xs-12">
+                <img src="{{category.image}}" class="img-fluid" alt="Category Image">
+            </div>
+
+            <!-- Text Details -->
+            <div class="col-sm-12 col-md-6 col-xs-12">
+                <div class="thumbnail border p-3">
+                    <h6 style="font-weight: bold;">Object ID</h6>
+                    <p>{{category._id}}</p>
+                    
+                    <h6 style="font-weight: bold;">Category ID</h6>
+                    <p>{{category.categoryId}}</p>
+                    
+                    <h6 style="font-weight: bold;">Name</h6>
+                    <p>{{category.name | pipeUppercase}}</p>
+                    
+                    <h6 style="font-weight: bold;">Description</h6>
+                    <p>{{category.description}}</p>
+                    
+                    <h6 style="font-weight: bold;">Created Date Time</h6>
+                    <p>{{category.createdAt | pipeDateFormat}}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Events Table -->
+        <div class="row mt-4">
+            <div class="col">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Event ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Start</th>
+                            <th scope="col">End</th>
+                            <th scope="col">Duration</th>
+                            <th scope="col">Is Active</th>
+                            <th scope="col">Capacity</th>
+                            <th scope="col">Tickets Available</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let event of category.eventsList">
+                            <th>{{event.eventId}}</th>
+                            <td>{{event.name}}</td>
+                            <td>{{event.startDateTime | pipeDateFormat}}</td>
+                            <td>{{event.endDateTime | pipeDateFormat}}</td>
+                            <td>{{event.durationInMinutes | duration}}</td>
+                            <td><input type="checkbox" [checked]="event.active" disabled /></td>
+                            <td>{{event.capacity}}</td>
+                            <td>{{event.ticketsAvailable}}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" [routerLink]="['/event-detail', event.eventId]">View</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

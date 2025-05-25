@@ -1,0 +1,41 @@
+<div class="banner" style="font-family:fantasy; display: flex; align-items: center; justify-content: center; background-color:rgb(33, 56, 116); height: 150px;">
+  <div>
+    <h1 style="font-size: 70px; color: aliceblue; ">Event Management Page</h1>
+  </div>
+</div>
+<head>
+  <title>Add Category Page</title>
+  <link href="/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        color: black;
+      }
+  </style>
+</head>
+
+<div class="container" style="text-align: center;">
+  <h4 style="margin-top: 20px; font-size: 15px;">
+    Tasks Group 1 (Chew Xin Ning 32693974)
+  </h4>
+  <a class="btn btn-outline-primary" style="margin-right: 10px;" routerLink="/api/v1/category/32693974/list-category" routerLinkActive="active" >Category List</a>
+  <a class="btn btn-outline-primary" style="margin-right: 10px;" routerLink="/api/v1/category/32693974/add-category" routerLinkActive="active">Add Category</a>
+  <a class="btn btn-outline-primary" style="margin-right: 10px;" routerLink="/api/v1/category/32693974/update-category" routerLinkActive="active">Update Category</a>
+  <a class="btn btn-outline-primary" style="margin-right: 10px;" routerLink="/api/v1/category/32693974/delete-category" routerLinkActive="active">Delete Category</a>
+  <a class="btn btn-outline-primary" style="margin-right: 10px;" routerLink="/speech-bot" routerLinkActive="active">Text To Speech</a>
+  <a class="btn btn-outline-primary" style="margin-right: 10px;" routerLink="/stats-g1" routerLinkActive="active">Stats G1</a>
+  <h4 style="margin-top: 20px; font-size: 15px;">
+    Tasks Group 2 (Chang De Zheng 32939965)
+  </h4>
+  <a class="btn btn-outline-primary" style="margin-right: 10px;" routerLink="/list-events" routerLinkActive="active">Event List</a>
+  <a class="btn btn-outline-primary" style="margin-right: 10px;" routerLink="/add-event" routerLinkActive="active">Add Event</a>
+  <a class="btn btn-outline-primary" style="margin-right: 10px;" routerLink="/update-event" routerLinkActive="active">Update Event</a>
+  <a class="btn btn-outline-primary" style="margin-right: 10px;" routerLink="/delete-event" routerLinkActive="active">Delete Event</a>
+  <a class="btn btn-outline-primary" style="margin-right: 10px;" routerLink="/language-bot" routerLinkActive="active">Translator</a>
+  <a class="btn btn-outline-primary" style="margin-right: 10px;" routerLink="/stats-g2" routerLinkActive="active">Stats G2</a>
+</div>
+
+<router-outlet></router-outlet>
+<app-footer></app-footer>

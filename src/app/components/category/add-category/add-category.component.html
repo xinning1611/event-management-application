@@ -1,0 +1,28 @@
+
+<div class="container">
+
+    <h4 style="margin-top: 20px; font-size: 20px; text-align: center;">Fill in category details</h4>
+
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="card shadow-sm custom-card" >
+            <div class="card-body">
+                <div class="section">
+                    <div class="form-group">
+                        <label for="name">Category Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter category name" [(ngModel)]="category.name">
+                    </div>
+                    <div class="form-group" style="margin-top: 10px;">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" style="height: 100px;" id="description" placeholder="Enter category description" [(ngModel)]="category.description"></textarea>
+                    </div>                                    
+                    <div class="form-group" style="margin-top: 10px;">
+                        <label for="image">Image</label>
+                        <input type="text" class="form-control" id="image" placeholder="Enter static resource path" [(ngModel)]="category.image">
+                    </div>
+                    <button style="margin-top: 20px;" type="submit" class="btn btn-primary" (click)="onSaveCategory()">Add Category</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
