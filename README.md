@@ -1,5 +1,6 @@
 # Event Management Application
 
+Please refer to documentation for detailed steps on how to run the application: https://drive.google.com/file/d/1-J4rk46fdCLC7CzgBtvwvrC12DoOFepf/view?usp=drive_link. 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
 
 ## Development server
